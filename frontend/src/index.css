@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text font-sans antialiased selection:bg-primary/30 selection:text-white;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent; 
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-border rounded-full hover:bg-dark-muted transition-colors; 
+}
+
+/* Glassmorphism */
+.glass-panel {
+  @apply bg-dark-card/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+}
+
+/* Explanation Content Styles */
+.ai-explanation pre {
+  @apply bg-[#0b1120] p-4 rounded-xl overflow-x-auto text-sm my-3 border border-white/5 text-gray-300 font-mono shadow-inner;
+}
+.ai-explanation code {
+  @apply text-blue-300 font-mono px-1 py-0.5 rounded bg-blue-900/30;
+}
+.ai-explanation pre code {
+  @apply text-gray-300 bg-transparent p-0;
+}
+.ai-explanation p {
+  @apply text-dark-text leading-relaxed mb-3;
+}
+.ai-explanation ul {
+  @apply list-none space-y-2 mb-4;
+}
+.ai-explanation li {
+  @apply flex items-start;
+}
+.ai-explanation li::before {
+  content: "•";
+  @apply text-primary mr-2 text-lg leading-4 mt-1;
+}
+
+/* Animating gradient borders and glows */
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
